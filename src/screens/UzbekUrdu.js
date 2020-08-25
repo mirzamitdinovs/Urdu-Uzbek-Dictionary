@@ -53,7 +53,7 @@ class UzbekUrdu extends React.Component {
               <Icon name="search" color="black" size={24} />
             </TouchableOpacity>
           </View>
-          <MainTitle title="Urducha manosi" />
+          <MainTitle title="O'zbekcha manosi" />
           <View style={styles.content}>
             <Text style={{marginBottom: 10}}>
               Kuproq kurish uchun bosing :))

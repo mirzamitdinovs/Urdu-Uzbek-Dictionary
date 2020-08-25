@@ -23,7 +23,7 @@ function UrduUzbekStack({mlang}) {
         options={{
           title: "Ma'lumotlar",
           headerStyle: {
-            backgroundColor: '#4e73df',
+            backgroundColor: 'blue',
           },
           headerTintColor: 'white',
           headerTitleStyle: {
