@@ -5,7 +5,7 @@ export default function MainTitle({title}) {
   return (
     <View>
       <Text style={styles.mainTitle}>{title}</Text>
-      <View style={styles.titleLine}></View>
+      <View style={styles.titleLine} />
     </View>
   );
 }
