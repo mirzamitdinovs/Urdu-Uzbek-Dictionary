@@ -7,11 +7,12 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
+  TouchableHighlight,
+  FlatList,
 } from 'react-native';
 import Loader from '../components/Loader';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import MainTitle from '../components/MainTitle';
-import RowsCount from '../components/RowsCount';
 
 class UrduUzbek extends React.Component {
   constructor(props) {
@@ -54,11 +55,29 @@ class UrduUzbek extends React.Component {
               <Icon name="search" color="black" size={24} />
             </TouchableOpacity>
           </View>
+
+          <FlatList
+            data={this.state.results}
+            renderItem={({item}) => (
+              <TouchableHighlight
+                onPress={() => {
+                  this.loadArenda(item);
+
+                  this.setState({
+                    selectedArenda_id: item.id,
+                  });
+                }}>
+                <ArendaListItem item={item} />
+                {/*<Text>salom</Text>*/}
+              </TouchableHighlight>
+            )}
+            keyExtractor={(item) => item.id}
+          />
+
           <MainTitle title="Urducha manosi" />
           <View style={styles.content}>
             <Text style={{marginBottom: 10}}>
               Kuproq kurish uchun bosing :))
-              <RowsCount />
             </Text>
             <Text
               onPress={() =>
