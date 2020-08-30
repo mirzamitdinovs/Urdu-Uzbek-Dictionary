@@ -11,13 +11,14 @@ class Details extends React.Component {
   }
 
   render() {
-    const {text} = this.props.route.params;
+    const {urdu, uzbek} = this.props.route.params;
     return this.state.isLoading ? (
       <Loader />
     ) : (
       <SafeAreaView>
         <ScrollView>
-          <Text style={styles.text}>{text}</Text>
+          <Text style={styles.text}>{urdu}</Text>
+          <Text style={styles.text}>{uzbek}</Text>
         </ScrollView>
       </SafeAreaView>
     );

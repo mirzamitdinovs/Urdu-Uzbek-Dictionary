@@ -7,14 +7,11 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
-  FlatList,
-  TouchableHighlight,
 } from 'react-native';
 import Loader from '../components/Loader';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import MainTitle from '../components/MainTitle';
 import RowsCount from '../components/RowsCount';
-import FindInUrdu from '../components/FindInUrdu';
 
 class UrduUzbek extends React.Component {
   constructor(props) {
@@ -23,25 +20,13 @@ class UrduUzbek extends React.Component {
       isLoading: false,
       inputText: '',
       readyText: '',
-      results: [],
-      selected_dict_id: '',
     };
-  }
-
-  componentDidMount() {
-    FindInUrdu((rows) => {
-      this.setState({results: rows});
-    });
   }
 
   onChangeText = (text) => {
     this.setState({
       inputText: text,
     });
-
-    FindInUrdu((rows) => {
-      this.setState({results: rows});
-    }, text);
   };
   onSubmitText = () => {
     this.setState({
@@ -69,40 +54,20 @@ class UrduUzbek extends React.Component {
               <Icon name="search" color="black" size={24} />
             </TouchableOpacity>
           </View>
-
-          <Text>{this.state.results.length} ta topildi:</Text>
-
-          <View style={{justifyContent: 'flex-start', alignItems: 'stretch'}}>
-            <FlatList
-              data={this.state.results}
-              renderItem={({item}) => (
-                <TouchableHighlight
-                  onPress={() => {
-                    navigation.navigate('Details', {
-                      urdu: item.urdu,
-                      uzbek: item.uzbek,
-                    });
-
-                    this.setState({
-                      ...this.state,
-                      selected_dict_id: item.id,
-                    });
-                  }}>
-                  <View
-                    style={{
-                      borderBottomColor: 'gray',
-                      borderBottomWidth: 1,
-                      marginBottom: 10,
-                    }}>
-                    <Text>{item.urdu}</Text>
-                    <Text>{item.uzbek}</Text>
-                  </View>
-
-                  {/*<Text>salom</Text>*/}
-                </TouchableHighlight>
-              )}
-              keyExtractor={(item) => item.id}
-            />
+          <MainTitle title="Urducha manosi" />
+          <View style={styles.content}>
+            <Text style={{marginBottom: 10}}>
+              Kuproq kurish uchun bosing :))
+              <RowsCount />
+            </Text>
+            <Text
+              onPress={() =>
+                navigation.navigate('Details', {
+                  text: this.state.readyText,
+                })
+              }>
+              {this.state.readyText}
+            </Text>
           </View>
 
           <View style={styles.footer}>

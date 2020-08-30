@@ -56,37 +56,25 @@ class UrduUzbek extends React.Component {
             </TouchableOpacity>
           </View>
 
-          <FlatList
-            data={this.state.results}
-            renderItem={({item}) => (
-              <TouchableHighlight
-                onPress={() => {
-                  this.loadArenda(item);
-
-                  this.setState({
-                    selectedArenda_id: item.id,
-                  });
-                }}>
-                <ArendaListItem item={item} />
-                {/*<Text>salom</Text>*/}
-              </TouchableHighlight>
-            )}
-            keyExtractor={(item) => item.id}
-          />
-
-          <MainTitle title="Urducha manosi" />
-          <View style={styles.content}>
-            <Text style={{marginBottom: 10}}>
-              Kuproq kurish uchun bosing :))
-            </Text>
-            <Text
-              onPress={() =>
-                navigation.navigate('Details', {
-                  text: this.state.readyText,
-                })
-              }>
-              {this.state.readyText}
-            </Text>
+          <View style={{justifyContent: 'flex-start', alignItems: 'stretch'}}>
+            <FlatList
+              data={this.state.results}
+              renderItem={({item}) => (
+                <TouchableHighlight
+                  // onPress={() => {
+                  //   this.loadArenda(item);
+                  //
+                  //   this.setState({
+                  //     selectedArenda_id: item.id,
+                  //   });
+                  // }}
+                >
+                  <Text>{item.urdu}</Text>
+                  {/*<Text>salom</Text>*/}
+                </TouchableHighlight>
+              )}
+              keyExtractor={(item) => item.id}
+            />
           </View>
 
           <View style={styles.footer}>
