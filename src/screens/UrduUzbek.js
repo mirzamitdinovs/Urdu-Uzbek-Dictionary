@@ -52,6 +52,7 @@ class UrduUzbek extends React.Component {
 
   render() {
     const {navigation} = this.props;
+    console.log('urdu-uzbek: ', this.state.results[0]);
     return this.state.isLoading ? (
       <Loader />
     ) : (
@@ -72,15 +73,20 @@ class UrduUzbek extends React.Component {
 
           <Text>{this.state.results.length} ta topildi:</Text>
 
-          <View style={{justifyContent: 'flex-start', alignItems: 'stretch'}}>
+          <View
+          // style={styles.content}
+
+          // style={{justifyContent: 'flex-start', alignItems: 'stretch'}}
+          >
             <FlatList
+              style={styles.content}
               data={this.state.results}
               renderItem={({item}) => (
                 <TouchableHighlight
                   onPress={() => {
                     navigation.navigate('Details', {
                       urdu: item.urdu,
-                      uzbek: item.uzbek,
+                      translation: item.translate,
                     });
 
                     this.setState({
@@ -94,8 +100,8 @@ class UrduUzbek extends React.Component {
                       borderBottomWidth: 1,
                       marginBottom: 10,
                     }}>
-                    <Text>{item.urdu}</Text>
-                    <Text>{item.uzbek}</Text>
+                    <Text style={styles.contentText}>{item.urdu}</Text>
+                    <Text style={styles.contentText}>{item.uzbek}</Text>
                   </View>
 
                   {/*<Text>salom</Text>*/}
@@ -153,10 +159,13 @@ const styles = StyleSheet.create({
   },
   content: {
     margin: 10,
-    padding: 10,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
     borderWidth: 1,
     borderColor: 'blue',
-    height: '50%',
+  },
+  contentText: {
+    fontSize: 20,
   },
   footer: {
     flexDirection: 'row',
