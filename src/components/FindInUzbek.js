@@ -1,8 +1,7 @@
 import React from 'react';
 //import
 
-const FindInUzbek = (setRows, searchKey = '', limit = 100) => {
-
+const FindInUzbek = (setRows, searchKey = 'a', limit = 100) => {
   db.transaction((tx) => {
     let query = '';
 
@@ -70,8 +69,8 @@ const FindInUzbek = (setRows, searchKey = '', limit = 100) => {
         rows.push(results.rows.item(i));
       }
 
-      console.log(rows.length)
-      console.log(rows)
+      // console.log(rows.length);
+      // console.log(rows);
 
       setRows(rows);
     });

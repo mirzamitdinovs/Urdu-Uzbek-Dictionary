@@ -1,37 +1,42 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 export default function NavigationBlock({title, navigation}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.openDrawer()}
-        style={styles.icon}>
-        <Icon name="bars" color="white" size={25} />
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.icon}>
+        {/* <Icon name="arrow-left" color="white" size={24} /> */}
+        <Image
+          source={require('../assets/images/arrow-left.png')}
+          style={styles.arrowImage}
+        />
       </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
-      <Text style={{color: 'blue'}}>asdf</Text>
+      <Text style={{color: 'transparent'}}>asdf</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'blue',
-    padding: 10,
+    backgroundColor: 'rgba(169, 169, 169, 0.7)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     color: 'white',
     fontWeight: '700',
+    // fontFamily: '',
+    letterSpacing: 0.5,
   },
-  icon: {
-    // position: 'absolute',
-    // left: 0,
-    // top: 0,
+  arrowImage: {
+    width: 25,
+    height: 25,
+    resizeMode: 'contain',
   },
 });

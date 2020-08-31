@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import MyDrawerNav from './src/navigation/MyDrawerNav';
 
 import SQLite from 'react-native-sqlite-storage';
+import StackNav from './src/navigation/StackNav';
 
 global.db = SQLite.openDatabase(
   {
@@ -12,12 +12,12 @@ global.db = SQLite.openDatabase(
   },
   () => {},
   (error) => {
-    console.log('ERROR: ' + error);
+    // console.log('ERROR: ' + error);
   },
 );
 
 export default function App() {
-  return <MyDrawerNav />;
+  return <StackNav />;
 }
 
 const styles = StyleSheet.create({});

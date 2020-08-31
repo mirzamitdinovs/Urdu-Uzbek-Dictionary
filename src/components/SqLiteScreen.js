@@ -39,7 +39,7 @@ export default class SqLiteScreen extends React.Component {
     var rows = selectQuery.rows;
     for (let i = 0; i < rows.length; i++) {
       var item = rows.item(i);
-      console.log(item);
+      // console.log(item);
     }
   }
 }
