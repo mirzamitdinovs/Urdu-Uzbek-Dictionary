@@ -11,7 +11,7 @@ export default function MainScreen({navigation}) {
             source={require('../../assets/images/logo.png')}
             style={styles.navbarImage}
           />
-          <Text style={styles.navbarText}>Urdu-Uzbek Dictionary</Text>
+          <Text style={styles.navbarText}>Urdu - O'zbek Lug'at</Text>
         </View>
         {/* <Text>Icon</Text> */}
       </View>
