@@ -23,12 +23,12 @@ export default function MainScreen({navigation}) {
         <TouchableOpacity
           onPress={() => navigation.navigate('UrduUzbek')}
           style={styles.buttonWrapper}>
-          <Text style={styles.buttonText}>Urdu-Uzbek</Text>
+          <Text style={styles.buttonText}>Urdu — O'zbek</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('UzbekUrdu')}
           style={styles.buttonWrapper}>
-          <Text style={styles.buttonText}>Uzbek-Urdu</Text>
+          <Text style={styles.buttonText}>O'zbek — Urdu</Text>
         </TouchableOpacity>
       </View>
     </View>
