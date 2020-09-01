@@ -21,7 +21,7 @@ const FindInUrdu = (setRows, searchKey = '', limit = 100) => {
       }
     }
 
-    tx.executeSql(query, [], (tx, results) => {
+    tx.executeSql(query, [searchKey], (tx, results) => {
       const rows = [];
       for (let i = 0; i < results.rows.length; i++) {
         rows.push(results.rows.item(i));
