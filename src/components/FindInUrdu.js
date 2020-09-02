@@ -7,16 +7,16 @@ const FindInUrdu = (setRows, searchKey = '', limit = 100) => {
 
     if (searchKey.length == 0) {
       query =
-        'SELECT `id`, `urdu`,`uzbek`, `translate` FROM dict order by length(`urdu`), `urdu` limit ' +
+        'SELECT `id`, `urdu`,`uzbek`, `translate`, `pronunciation`, `abbreviation` FROM dict order by length(`urdu`), `urdu` limit ' +
         limit;
     } else {
       if (searchKey.length == 1) {
         query =
-          "SELECT `id`, `urdu`, `uzbek`, `translate` FROM dict WHERE `urdu` LIKE ?||'%' order by length(`urdu`), `urdu` limit " +
+          "SELECT `id`, `urdu`, `uzbek`, `translate`, `pronunciation`, `abbreviation` FROM dict WHERE `urdu` LIKE ?||'%' order by length(`urdu`), `urdu` limit " +
           limit;
       } else if (searchKey.length > 1) {
         query =
-          "SELECT `id`, `urdu`, `uzbek`, `translate` FROM dict WHERE `urdu` LIKE '%'||?||'%' order by length(`urdu`), `urdu` limit " +
+          "SELECT `id`, `urdu`, `uzbek`, `translate`, `pronunciation`, `abbreviation` FROM dict WHERE `urdu` LIKE '%'||?||'%' order by length(`urdu`), `urdu` limit " +
           limit;
       }
     }

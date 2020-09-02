@@ -10,13 +10,13 @@ const FindInUzbek = (setRows, searchKey = '', limit = 100) => {
       return;
 
       query =
-        'SELECT `id`, `urdu`, `translate` FROM dict order by length(`urdu`), `urdu` limit ' +
+        'SELECT `id`, `urdu`, `translate`, `pronunciation`, `abbreviation` FROM dict order by length(`urdu`), `urdu` limit ' +
         limit;
     } else {
       if (searchKey.length == 1) {
         query =
           "\
-                SELECT `id`, `urdu`, `translate`, `uzbek`, ? as `searchKey` \
+                SELECT `id`, `urdu`, `translate`, `uzbek`, `pronunciation`, `abbreviation`, ? as `searchKey` \
                 FROM dict \
                 WHERE `uzbek` LIKE ?||'%' \
                 order by \
@@ -38,7 +38,7 @@ const FindInUzbek = (setRows, searchKey = '', limit = 100) => {
       } else if (searchKey.length > 1) {
         query =
           "\
-                SELECT `id`, `urdu`, `translate`, `uzbek`, ? as `searchKey` \
+                SELECT `id`, `urdu`, `translate`, `uzbek`, `pronunciation`, `abbreviation`, ? as `searchKey` \
                 FROM dict \
                 WHERE `uzbek` LIKE '%'||?||'%' \
                 order by \

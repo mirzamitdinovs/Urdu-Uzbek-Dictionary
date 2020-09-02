@@ -50,14 +50,15 @@ class UrduUzbek extends React.Component {
             onChangeText={this.onChangeText}
           />
           <View style={styles.inputWrapper}>
+
+            <Icon name="search" style={styles.navbarIcon} />
             <TextInput
-              placeholder="Qidiruv..."
+              placeholder=""
               placeholderTextColor="black"
               style={styles.navbarInput}
               underlineColorAndroid="black"
               onChangeText={(text) => this.onChangeText(text)}
             />
-            <Icon name="search" style={styles.navbarIcon} />
           </View>
           <FlatList
             style={styles.content}
@@ -69,6 +70,8 @@ class UrduUzbek extends React.Component {
                   navigation.navigate('Details', {
                     urdu: item.urdu,
                     translation: item.translate,
+                    pronunciation: item.pronunciation,
+                    abbreviation: item.abbreviation,
                     pathScreen: 'UzbekUrdu',
                   });
 
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
   navbarIcon: {
     fontSize: 20,
     position: 'absolute',
-    right: 15,
+    left: 15,
     top: 15,
     color: 'rgba(0,0,0,1)',
   },

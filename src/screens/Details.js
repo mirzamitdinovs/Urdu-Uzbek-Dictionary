@@ -4,7 +4,13 @@ import NavigationBlock from '../components/NavigationBlock';
 
 class Details extends React.Component {
   render() {
-    const {urdu, uzbek, translation} = this.props.route.params;
+    const {
+      urdu,
+      uzbek,
+      translation,
+      pronunciation,
+      abbreviation,
+    } = this.props.route.params;
     const translations = translation.split(';');
     return (
       <SafeAreaView
@@ -15,8 +21,14 @@ class Details extends React.Component {
         <NavigationBlock title="Batafsil" navigation={this.props.navigation} />
 
         <ScrollView>
+          <Text style={[styles.title]}>{urdu}</Text>
           <View style={styles.container}>
-            <Text style={[styles.title]}>{urdu}</Text>
+            <View>
+              <Text style={styles.pronunciation}>Talaffuz: {pronunciation}</Text>
+            </View>
+            <View>
+              <Text style={styles.pronunciation}>Qisqartma: {abbreviation}</Text>
+            </View>
             {translations.map((a) => (
               <Text style={styles.text}>{a.trim()}</Text>
             ))}
@@ -40,6 +52,13 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     paddingVertical: 10,
+  },
+  pronunciation: {
+    marginLeft: 20,
+    marginRight: 20,
+    margin: 5,
+    fontSize: 20,
+    textAlign: 'left',
   },
   text: {
     margin: 20,

@@ -65,6 +65,8 @@ class UzbekUrdu extends React.Component {
                   navigation.navigate('Details', {
                     urdu: item.urdu,
                     translation: item.translate,
+                    pronunciation: item.pronunciation,
+                    abbreviation: item.abbreviation,
                     pathScreen: 'UrduUzbek',
                   });
 
